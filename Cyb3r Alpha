@@ -1,0 +1,44 @@
+Ultimate Nmap Commands Cheat sheet
+
+Basic Scanning teshniques
+ commands                                    Description 
+nmap <target ip>                             scan a single target
+nmap <target1 target2>                       scan multiple targets
+namp -iL targets.txt                         scan a target from a list of files
+namp -sn <target>                            Ping scan to determine if host is online
+
+Port Specification 
+namp -p <port> <target>                      scan a specific port 
+namp -p- <target>                            scan all 65535
+namp -F <target>                             scan most common ports (100)
+namp -p 20-100 <target>                      scan a range of ports
+
+Services and Version Detection 
+namp -sV <target>                            services and version detection 
+namp -A <target>                             Aggressive scan (OS detection, version, scripts)
+nmap --version-intensity 0-9 <target>        Adjust version detection intensity
+
+Scan types 
+namp -sS <target>                            SYN scan (stealth scan)
+nmap -sT <target>                            Connect scan (TCP)
+nmap -sU <target>                            UDP scan 
+nmap -sA <target>                            ACK scan 
+nmap -sN <target>                            NULL scan (no flag set)
+nmap -sF <target>                            FIN scan (fin flag set)
+nmap -sX <target>                            XMAS scan (FIN, URG, and PSH flags set)
+nmap -sO <target>                            Protocol scan (Determine supported protocols)
+nmap -sP <target>                            Ping scan (no port scan)
+
+Scripting Engine 
+nmap --script <scriptname> <target>          Run specific script
+nmap --script vuln <target>                  scan for vulneribilites using scripts
+nmap --script-help <script name>             Get help for a specific script 
+nmap --script-updatedb                       Update script database
+
+Output Options 
+nmap -oN output.txt <target>                 Save normal output to a file 
+nmap -oX output.xml <target>                 Save output in XML format 
+nmap -oG output.grep <target>                Save output in grepable format 
+
+Timing and Preformance 
+nmap -T<0-5> <target>
